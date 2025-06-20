@@ -282,20 +282,18 @@ input:focus, textarea:focus{
 /* table stling */
 table{
     width: 100%;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     margin-top: 20px;
 }
 
-th{
+th, .row-td{
     color: #8d8989;
 }
 
 th, td{
     text-align: left;
     padding-top: 15px;
-}
-tr{
-    
+    min-height: 50px;
 }
 
 .task-name{
@@ -443,4 +441,60 @@ dialog::backdrop{
 
 .pomodoro-btn{
     padding: 10px 18px;
+}
+
+
+
+/* Eisenhower Matrix */
+.row-td{
+    font-weight: bold;
+}
+
+.mat-table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.mat-table td{
+    
+}
+
+.mat-title{
+    font-family: 'montserratregular';
+    font-size: 0.9rem;
+    padding: 5px;
+    border-radius: 9px;
+    background: #e7f0b1;
+    color: var(--accent-color);
+    max-width: fit-content;
+    margin-bottom: 10px;
+}
+
+.col-small{
+    width: 20%;
+}
+
+.col-medium{
+    width: 40%;
+}
+
+/* .mat-td{
+    width: 60%;
+    vertical-align: top;
+    background-color: red;
+} */
+
+.mat-card{
+    width: 96%;
+    height: 150px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mat-card .det{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #121212;
 }
