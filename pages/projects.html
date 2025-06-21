@@ -114,15 +114,21 @@
                 </div>
                 
                
-                <div class="task-table">
-                    <div class="card task-board-card">
-                        <span class="block title">Call with Colleagues</span>
+                <div class="project-container">
+                    <div class="card project-card">
+                        <span class="block title">Work</span>
                         <div class="progress-tags task-board-priority">
-                            <span class="tags" id="todo">Low</span>
-                            <span class="tags" id="done">High</span>
+                            <span class="tags" id="done">Important</span>
                         </div>
-                        <span class="block det">Discuss new prospects of the project</span>
-                        <span class="block time">Nov 17</span>
+                        <span class="block det">Software Engineering Works</span>
+                    </div>
+
+                    <div class="card project-card">
+                        <span class="block title">Personal</span>
+                        <div class="progress-tags task-board-priority">
+                            <span class="tags" id="done">Important</span>
+                        </div>
+                        <span class="block det">Myy Persona Life</span>
                     </div>
                 </div>
             </div>   
@@ -144,31 +150,27 @@
             <div class="form-inputs">
                 <form action="">
                     <div>
-                        <label for="taskName">Task Name</label>
-                        <input type="text" id="taskName">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" id="projectName" class="normal-input">
                     </div>
+                    
                     <div>
-                        <label for="authorName">Due Date</label>
-                        <input type="date" id="authorName">
-                    </div>
-                    <div>
-                        <label for="startTime">Start Time</label>
-                        <input type="time" id="startTime" placeholder="00:00">
-                    </div>
-                    <div>
-                        <label for="endTime">End Time</label>
-                        <input type="time" id="endTime" placeholder="00:00">
-                    </div>
-                    <div>
-                        <label for="taskDescription">Description</label>
-                        <textarea name="" id="taskDescription">
+                        <label for="projectDescription">Description</label>
+                        <textarea name="" id="projectDescription">
 
                         </textarea>
+                    </div>
+
+                    <div>
+                        <label for="important">
+                            <input type="checkbox" id="important">Important
+                        </label>
+                        
                     </div>
                 </form>
             </div>
             <button type="button" class="book-btn addBtn viewall">
-                Add Task
+                Add Project
             </button>
         </div>
     </dialog>

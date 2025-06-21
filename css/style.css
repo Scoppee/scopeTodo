@@ -98,7 +98,7 @@ select {
 /* Base light theme */
 :root {
     --bg-color: #dfdff8;
-    --text-color: #000000;
+    --text-color: #302f2f;
     --accent-color: #ffc107;
     --white: #ffffff;
 }
@@ -124,7 +124,7 @@ body{
 }
 
 .sidebar{
-    width: 20vw;
+    width: 17vw;
     min-height: 100vh;
     background-color: var(--text-color);
     color:var(--bg-color) ;
@@ -140,6 +140,11 @@ span.block{
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo-text{
@@ -184,7 +189,7 @@ font-weight: bold;
 
 /* Main Display Style */
 .main-display{
-    width: 80vw;
+    width: 83vw;
     background-color: var(--bg-color);
     color: var(--text-color);
     
@@ -206,6 +211,10 @@ input, textarea{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 8px 0 8px 7px;
     border-radius: 8px;
+}
+
+input[type="checkbox"]{
+    display: inline;
 }
 
 input:focus, textarea:focus{
@@ -408,7 +417,7 @@ dialog{
     display: block;
 }
 
-.add-book-panel .form-inputs input, .add-book-panel .form-inputs textarea{
+.add-book-panel .form-inputs .normal-input, .add-book-panel .form-inputs textarea{
     width: 90%;
     padding: 5px 5px;
 }
@@ -497,4 +506,25 @@ dialog::backdrop{
     overflow: hidden;
     text-overflow: ellipsis;
     color: #121212;
+}
+
+
+/* Project Style */
+.project-container{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.project-card{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #ddd;
+    width: 20%;
+    min-height: 150px;
+    cursor: pointer;
 }
