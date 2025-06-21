@@ -1,32 +1,27 @@
-const darkMode = document.querySelector(".dark");
-const lightMode = document.querySelector(".light");
+// Add Task Constructor
+function Task(taskName, dueDate, priority, startTime, endTime, importance, project, description) {
+  this.taskName = taskName;
+  this.dueDate = dueDate;
+  this.priority = priority;
+  this.startTime = startTime;
+  this.endTime = endTime;
+  this.importance = importance;
+  this.project = project;
+  this.description = description;
+  this.createdAt = new Date().toISOString(); // Optional metadata
+}
 
 
-darkMode.addEventListener("click", () => {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark")
-})
-
-lightMode.addEventListener("click", () => {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light")
-})
-
-window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", savedTheme);
-})
-
-
-
-
-
-  document.addEventListener("DOMContentLoaded", () => {
+function setupTaskForm() {
     const form = document.getElementById("taskForm");
     const submitBtn = document.getElementById("submitTask");
     const dialog = document.getElementById("mydialog");
   
-    submitBtn.addEventListener("click", () => {
+    if (!form || !submitBtn || !dialog) return;
+  
+    submitBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // ✅ Prevent any default behavior (just in case)
+  
       if (form.checkValidity()) {
         const formData = new FormData(form);
   
@@ -43,7 +38,6 @@ window.addEventListener("DOMContentLoaded", () => {
   
         console.log("✅ Task Created:", task);
   
-        // Optional: Save to localStorage
         const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
         savedTasks.push(task);
         localStorage.setItem("tasks", JSON.stringify(savedTasks));
@@ -51,17 +45,9 @@ window.addEventListener("DOMContentLoaded", () => {
         form.reset();
         dialog.close();
       } else {
-        form.reportValidity(); // Show validation errors
+        form.reportValidity(); // 🔔 Show validation UI
       }
     });
-  });
-  
-  
+  }
 
-
-
-
-
-
-
-
+  export { setupTaskForm };

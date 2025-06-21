@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScopeTodo || Have a Productive Day</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <script src="./script/script.js" defer></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+</head>
+<body>
+
+
+
+    <div class="overall">
+        <div class="sidebar">
+            <!-- Logo- Section -->
+            <div class="logo">
+                <span class="block logo-text">
+                    <span class="scope">Scope</span>Todo
+                </span>
+                <!-- <span class="block logo-sub-text">
+                    Have a productive day!
+                </span> -->
+            </div>
+    
+           
+    
+             <!-- Todo Navigation buttons -->
+            <div class="navigation">
+                <a href="/" data-link>
+                    <div class="navigation-section">
+                        <div class="nav-header">
+                            <span>Dashboard</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div> 
+                    </div>
+                </a>
+    
+    
+                <a href="/tasks" data-link>
+                    <div class="navigation-section">
+                        <div class="nav-header">
+                            <span>Tasks</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div> 
+                    </div>
+                </a>
+    
+                <!-- <div class="navigation-section">
+                    <div class="nav-header">
+                        <span>Calender</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div> 
+                </div> -->
+    
+                <a href="/pomodoro" data-link>
+                    <div class="navigation-section">
+                        <div class="nav-header">
+                            <span>Pomodoro</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div> 
+                    </div>
+                </a>
+    
+    
+                <a href="./eisenhowerMatrix" data-link>
+                    <div class="navigation-section">
+                        <div class="nav-header">
+                            <span>Eisenhower Matrix</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div> 
+                    </div>
+                </a>
+    
+    
+                <a href="/projects" data-link>
+                    <div class="navigation-section">
+                        <div class="nav-header">
+                            <span>Projects</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div> 
+                        <ul role="list" class="dropdown-list">
+                            <li>Work</li>
+                            <li>Personal</li>
+                            <li>Design</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+    
+    
+            <!-- Light and Dark Modes -->
+            <div class="themes">
+               
+                <span class="theme-item light sun block">Light</span>
+                <span class="theme-item dark moon block">Dark</span>
+                <div class="toggle-circle"></div>
+            </div>
+        </div>
+    
+
+
+
+        <main id="app">
+
+        </main>
+
+
+
+
+
+        <dialog id="mydialog">
+            <div class="add-book-panel panel">
+              <div class="title">
+                <h2>Add Task</h2>
+                <span class="close goBack" id="closedialog">Go Back</span>
+              </div>
+              <div class="form-inputs">
+                <form id="taskForm">
+                  <div>
+                    <label for="taskName">Task Name</label>
+                    <input type="text" id="taskName" name="taskName" class="normal-input" required />
+                  </div>
+                  <div>
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" name="dueDate" class="normal-input" required />
+                  </div>
+          
+                  <div class="checkboxes">
+                    <label>Priority</label>
+                    <label id="inline">
+                      <input type="radio" name="priority" value="High" required /> High
+                    </label>
+                    <label id="inline">
+                      <input type="radio" name="priority" value="Medium" /> Medium
+                    </label>
+                    <label id="inline">
+                      <input type="radio" name="priority" value="Low" /> Low
+                    </label>
+                  </div>
+          
+                  <div>
+                    <label for="startTime">Start Time</label>
+                    <input type="time" id="startTime" name="startTime" class="normal-input" required />
+                  </div>
+                  <div>
+                    <label for="endTime">End Time</label>
+                    <input type="time" id="endTime" name="endTime" class="normal-input" required />
+                  </div>
+          
+                  <div class="checkboxes">
+                    <label>Importance</label>
+                    <label id="inline">
+                      <input type="radio" name="importance" value="Important" required /> Important
+                    </label>
+                    <label id="inline">
+                      <input type="radio" name="importance" value="Not Important" /> Not Important
+                    </label>
+                    <label id="inline">
+                      <input type="radio" name="importance" value="Urgent" /> Urgent
+                    </label>
+                    <label id="inline">
+                      <input type="radio" name="importance" value="Not Urgent" /> Not Urgent
+                    </label>
+                  </div>
+          
+                  <div class="checkboxes">
+                    <label for="project">Project</label>
+                    <select id="project" name="project" required>
+                      <option value="">Select a Project</option>
+                      <option value="Personal">Personal</option>
+                      <option value="Work">Work</option>
+                    </select>
+                  </div>
+          
+                  <div class="checkboxes">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" name="taskDescription" required></textarea>
+                  </div>
+                </form>
+              </div>
+          
+              <button type="button" class="book-btn addBtn viewall" id="submitTask">
+                Add Task
+              </button>
+            </div>
+          </dialog>
+          
+    
+
+
+
+
+        <dialog id="myprojectdialog">
+            <div class="add-book-panel panel">
+                <div class="title">
+                    <h2>Add Project</h2>
+                    <span class="close goBack" id="closeprojectdialog">Go Back</span>
+                </div>
+                <div class="form-inputs">
+                    <form action="" id="projectform">
+                        <div class="checkboxes">
+                          <label for="projectName">Project Name</label>
+                          <input type="text" id="projectName" name="projectName" class="normal-input" required>
+                        </div>
+                      
+                        <div class="checkboxes">
+                          <label for="projectDescription">Description</label>
+                          <textarea id="projectDescription" name="projectDescription" required></textarea>
+                        </div>
+                      
+                        <div class="checkboxes">
+                          <label>Importance</label>
+                          <label for="impo" id="inline">
+                            <input type="radio" id="impo" name="importance" value="Important" required> Important
+                          </label>
+                      
+                          <label for="notimpo" id="inline">
+                            <input type="radio" id="notimpo" name="importance" value="Not Important" required> Not Important
+                          </label>
+                        </div>
+                      </form>
+                      
+                      <button type="button" id="submitProject" class="book-btn addBtn viewall">Add Project</button>                      
+            </div>
+        </dialog>
+
+
+
+
+        
+
+
+        
+    </div>
+    <script type="module" src="./router.js"></script>
+
+    
+</body>
+ <!-- <button class="dark">dark</button>
+    <button class="light">light</button>
+    <span>What mode am I in?</span> -->
+</html>
