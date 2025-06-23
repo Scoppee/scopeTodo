@@ -525,7 +525,7 @@ dialog::backdrop{
     width: 96%;
     height: 150px !important;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: scroll;
     text-overflow: ellipsis;
 }
 

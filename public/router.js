@@ -1,9 +1,16 @@
+import { getTasks } from "./taskForm.js";
 import { setupTaskForm } from "./taskForm.js";
-import { setupProjectForm } from './projectForm.js';
+import { getProjects, setupProjectForm } from './projectForm.js';
+import { renderTaskList } from "./taskListUI.js";
+import { renderProjectList } from "./projectListUI.js";
+import { renderTaskBoard } from "./taskBoardUI.js";
+import { setupPomodoro } from "./pomodoro.js";
+import { populateEisenhowerMatrix } from "./eisenhower.js";
+import { renderSingleProjectTasks } from "./singleProject.js";
 // Single Application Scripts
 // Create a map that direct user to pages
 const routes = {
-    "/": "/pages/index.html",
+    "/": "/pages/index.html", 
     "/tasks": "/pages/tasks.html",
     "/projects": "/pages/projects.html",
     "/pomodoro": "/pages/pomodoro.html",
@@ -26,10 +33,27 @@ const renderPage = async () => {   //
     const html = await fetch(routes[path] || routes["/"]).then((res) => res.text()); //Loads the html file as text content
     document.querySelector("#app").innerHTML = html;  //Selects the main id=app in the index and replaces its content with html declared up
 
+    const tasks = getTasks();
+    const projects = getProjects();
+
+    if (document.querySelector("#todo-body")) {
+        renderTaskList(tasks);
+    }
+    if (document.querySelector("#inprogress-body")) {
+        renderTaskList(tasks);
+    }
+    if (document.querySelector("#done-body")) {
+        renderTaskList(tasks);
+    }
+
+    if (document.querySelector("#taskboard-table-body")) {
+        renderTaskBoard(tasks);
+    }
+    // Open Add Task Dialog
     if (document.getElementById("mydialog")) {
         setupTaskForm();
     }
-
+    // Open Add Project Dialog
     if (document.getElementById("projectform")) {
     setupProjectForm();
     }
@@ -39,6 +63,26 @@ const renderPage = async () => {   //
 
     openProjectDialogue();
 
+    
+
+    // Inside your renderPage or switch statement for pomodoro:
+    if (path === "/pomodoro") {
+    setupPomodoro(); // initialize the pomodoro timer once page is rendered
+    }
+
+    if (path === "/eisenhowerMatrix") {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        populateEisenhowerMatrix(tasks);
+    }
+
+    if (path === "/projects") {
+        renderProjectList(projects);
+    }
+
+
+    if (path === "/singleProject") {
+        renderSingleProjectTasks();
+    }
 
 
 }

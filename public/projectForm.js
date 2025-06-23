@@ -1,3 +1,4 @@
+import { renderProjectList } from "./projectListUI.js";
 // Constructor function
 function Project(name, description, importance) {
     this.name = name;
@@ -32,7 +33,10 @@ function Project(name, description, importance) {
         const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
         savedProjects.push(project);
         localStorage.setItem("projects", JSON.stringify(savedProjects));
-  
+        
+        const allProjects = getProjects()
+      renderProjectList(allProjects);
+
         form.reset();
         dialog.close();
       } else {
@@ -40,7 +44,13 @@ function Project(name, description, importance) {
       }
     });
   }
+
+
+  function getProjects() {
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    return projects;
+  }
   
   // ✅ Export the setup function
-  export { setupProjectForm };
+  export { setupProjectForm, getProjects };
   

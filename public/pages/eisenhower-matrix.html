@@ -38,59 +38,48 @@
                 <div class="task-table">
                     <table class="mat-table">
                         <thead>
-                            <tr>
-                                <td rowspan="1" class="col-small"></td>
-                                <th class="col-medium">Urgent</th>
-                                <th class="col-medium">Not Urgent</th>
-                               
-                            </tr>
+                          <tr>
+                            <td class="col-small"></td>
+                            <th class="col-medium">Urgent</th>
+                            <th class="col-medium">Not Urgent</th>
+                          </tr>
                         </thead>
-
+                      
                         <tbody>
-                            <!-- Input 1 -->
-                            <tr class="red">
-                              <td class="row-td">Important</td>
-
-                              <td class="mat-td">
-                                <div class="card task-board-card mat-card">
+                          <tr class="red">
+                            <td class="row-td">Important</td>
+                      
+                            <td class="mat-td" id="do-box"> 
+                                <div class="card task-board-card mat-card" id="eistasks">
                                     <span class="block title mat-title">Do</span>
-                                    <span class="block det mat-task">Discuss new prospects of the project to the company and its surrounding firms</span>
                                 </div>
-                              </td>  
-
-                              
-
-                              <td class="mat-td">
-                                <div class="card task-board-card mat-card">
+                            </td>
+                      
+                            <td class="mat-td" id="schedule-box"> <!-- Important + Not Urgent -->
+                                <div class="card task-board-card mat-card" id="eistasks">
                                     <span class="block title mat-title">Schedule</span>
-                                    <span class="block det">Discuss new prospects of </span>
-                                    <span class="block det">Discuss new prospects of </span>
                                 </div>
-                              </td>
-                            </tr>
-
-                            <!-- Input 2 -->
-                            <tr>
-                                <td class="row-td">Not Important</td>
-                                <td class="task-name">
-                                  <div class="card task-board-card mat-card">
+                            </td>
+                          </tr>
+                      
+                          <tr>
+                            <td class="row-td">Not Important</td>
+                      
+                            <td class="mat-td" id="delegate-box"> <!-- Not Important + Urgent -->
+                                <div class="card task-board-card mat-card" id="eistasks">
                                     <span class="block title mat-title">Delegate</span>
-                                      <span class="block det">Discuss new prospects of the project</span>
-                                  </div>
-                                </td>  
-  
-                                <td>
-                                  <div class="card task-board-card mat-card">
+                                </div>
+                            </td>
+                      
+                            <td class="mat-td" id="eliminate-box"> <!-- Not Important + Not Urgent -->
+                                <div class="card task-board-card mat-card" id="eistasks">
                                     <span class="block title mat-title">Eliminate</span>
-                                      <span class="block det">Discuss new prospects of the project</span>
-                                  </div>
-                                </td>
-  
-                               
-                              </tr>
-  
+                                </div>
+                            </td>
+                          </tr>
                         </tbody>
-                    </table>
+                      </table>
+                      
                 </div>
             </div>   
         </div>
