@@ -7,9 +7,13 @@ import { renderTaskBoard } from "./taskBoardUI.js";
 import { setupPomodoro } from "./pomodoro.js";
 import { populateEisenhowerMatrix } from "./eisenhower.js";
 import { renderSingleProjectTasks } from "./singleProject.js";
+import { initCalendar } from "./calender.js";
+import { renderDashboardTaskList } from "./dashboardTaskList.js";
+
 // Single Application Scripts
 // Create a map that direct user to pages
 const routes = {
+    "/index": "/pages/index.html",
     "/": "/pages/index.html", 
     "/tasks": "/pages/tasks.html",
     "/projects": "/pages/projects.html",
@@ -36,17 +40,22 @@ const renderPage = async () => {   //
     const tasks = getTasks();
     const projects = getProjects();
 
-    if (document.querySelector("#todo-body")) {
+    if (path === "/index" || path === "/") {
+        initCalendar();
+        renderDashboardTaskList(tasks);
+    }
+
+    if (path === "/tasks") {
         renderTaskList(tasks);
     }
-    if (document.querySelector("#inprogress-body")) {
+    if (path === "/tasks") {
         renderTaskList(tasks);
     }
-    if (document.querySelector("#done-body")) {
+    if (path === "/tasks") {
         renderTaskList(tasks);
     }
 
-    if (document.querySelector("#taskboard-table-body")) {
+    if (path === "/taskBoard") {
         renderTaskBoard(tasks);
     }
     // Open Add Task Dialog
@@ -83,6 +92,9 @@ const renderPage = async () => {   //
     if (path === "/singleProject") {
         renderSingleProjectTasks();
     }
+
+   
+    
 
 
 }

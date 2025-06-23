@@ -1,12 +1,12 @@
+<!-- Update your dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScopeTodo || Have a Productive Day</title>
+    <title>ScopeTodo || Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
-    <script src="../script/script.js" defer></script>
+    <!-- <script type="module" src="../script/dashboard.js" defer></script> -->
 </head>
 <body>
     <div class="overall">
@@ -21,92 +21,87 @@
             <div class="task-section">
                 <div class="heading">
                     <h2>Tasks</h2>
-                    <button class="viewall">
-                        View All
-                    </button>
+                    <div class="buttons">
+                        
+                        <a href="/tasks">
+                            <button class="viewall" id="viewAllBtn">View All</button>
+                        </a>
+                        <button class="viewall" id="opendialog">
+                            + Add Task
+                        </button>
+
+                        <button class="viewall" id="openprojectdialog">
+                            + Add Project
+                        </button>
+                    </div>
+                    
+                    
                 </div>
-                <div class="progress-tags">
-                    <span class="tags" id="all">All</span>
-                    <span class="tags" id="todo">To do</span>
-                    <span class="tags" id="inprogress">In Progress</span>
-                    <span class="tags" id="done">Done</span>
+                <div class="progress-tags filter-buttons">
+                    <span class="tags all" id="all" data-filter="all">All</span>
+                    <span class="tags todo" id="todo" data-filter="todo">To do</span>
+                    <span class="tags done" id="done" data-filter="done">Done</span>
                 </div>
 
                 <div class="task-table">
                     <table>
                         <thead>
                             <tr>
-                                <th>#Work</th>
+                                <th>Task</th>
                                 <th>Due Date</th>
+                                
                                 <th>Priority</th>
+                                
                             </tr>
                         </thead>
 
-                        <tbody>
-                            <!-- Input 1 -->
+                        <tbody id="todo-dbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="task-table" style="display: none;">
+                    <table>
+                        <thead>
                             <tr>
-                              <td class="task-name">
-                                <span class="input">
-                                    <input type="checkbox" name="" id="">
-                                </span>
-                               <div>
-                                    <span class="block name">Website Development</span>
-                                    <span class="block description">Landing Page</span>
-                               </div>
-                              </td>  
-
-                              <td>
-                                Nov 17
-                              </td>
-
-
-                              <td>
-                                <span class="tags" id="todo">High</span>
-                              </td>
+                                <th>Task</th>
+                                <th>Due Date</th>
+                                
+                                <th>Priority</th>
+                                
                             </tr>
+                        </thead>
 
-                            <!-- Input 2 -->
-                            <tr>
-                                <td class="task-name">
-                                  <span class="input">
-                                      <input type="checkbox" name="" id="">
-                                  </span>
-                                 <div>
-                                      <span class="block name">Frontend Optimization</span>
-                                      <span class="block description">Search Engine Best Practices</span>
-                                 </div>
-                                </td>  
-  
-                                <td>
-                                  Nov 17
-                                </td>
-  
-  
-                                <td>
-                                  <span class="tags" id="done">Low</span>
-                                </td>
-                              </tr>
+                        <tbody id="done-body" >
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div class="column">
-                <div class="card calender">Coming soon</div>
-
-                    <div class="card">
-                        <span class="block title">Call with Colleagues</span>
-                        <span class="block det">Discuss new prospects of the project</span>
-                        <span class="block time">16:00 - 16:20</span>
+                <div class="card calender" id="calendar">
+                    <div class="card calendar">
+                        <div class="calendar-header">
+                            <button id="prev-month">&#8592;</button>
+                            <h3 id="month-year">Month Year</h3>
+                            <button id="next-month">&#8594;</button>
+                        </div>
+                        <div class="calendar-days">
+                            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                        </div>
+                        <div class="calendar-dates" id="calendar-dates">
+                            <!-- Dates will be populated by JS -->
+                        </div>
                     </div>
+                    
+                </div>
+
+               
             </div>
         </div>
     </div>
-
-      
     </div>
 </body>
- <!-- <button class="dark">dark</button>
-    <button class="light">light</button>
-    <span>What mode am I in?</span> -->
 </html>

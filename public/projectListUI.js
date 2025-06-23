@@ -2,9 +2,6 @@ import { getProjects } from './projectForm.js';
 
 function renderProjectList(projects) {
   const projectContainer = document.querySelector("#project-container");
-//   const inProgressTable = document.querySelector("#inprogress-body");
-//   const doneTable = document.querySelector("#done-body");
-
   projectContainer.innerHTML = "";
 //   inProgressTable.innerHTML = "";
 //   doneTable.innerHTML = "";

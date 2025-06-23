@@ -1,11 +1,11 @@
 import { deleteTask, updateStatus, updateTask,  getTasks, openEditForm } from './taskForm.js';
 
-function renderTaskList(tasks) {
-  const todoTable = document.querySelector("#todo-body");
-  const doneTable = document.querySelector("#done-body");
+function renderDashboardTaskList(tasks) {
+  const tododTable = document.querySelector("#todo-dbody");
 
-  todoTable.innerHTML = "";
-  doneTable.innerHTML = "";
+
+  tododTable.innerHTML = "";
+
 
   tasks.forEach((task, index) => {
     const row = document.createElement("tr");
@@ -24,19 +24,12 @@ function renderTaskList(tasks) {
         </div>
       </td>
       <td>${formatDate(task.dueDate)}</td>
-      <td><span class="tags" id="all">${task.project}</span></td>
       <td><span class="tags" id="${priorityId}">${task.priority}</span></td>
-      <td>
-        <button data-index="${index}" class="viewall edit-btn">✏️</button>
-        <button data-index="${index}" class="viewall delete-btn">🗑️</button>
-      </td>
     `;
 
     if (task.status === "todo") {
-      todoTable.appendChild(row);
-    } else if (task.status === "done") {
-      doneTable.appendChild(row);
-    }
+      tododTable.appendChild(row);
+    } 
   });
 
   addEventListeners();
@@ -50,14 +43,12 @@ function formatDate(dateStr) {
   });
 }
 
-
-
 function addEventListeners() {
   document.querySelectorAll(".delete-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const index = btn.dataset.index;
       deleteTask(index);
-      renderTaskList(getTasks());
+      renderDashboardTaskList(getTasks());
     });
   });
 
@@ -77,9 +68,9 @@ function addEventListeners() {
 
       task.status = box.checked ? "done" : "todo"; // Simplified toggle
       updateTask(index, task);
-      renderTaskList(getTasks());
+      renderDashboardTaskList(getTasks());
     });
   });
 }
 
-export { renderTaskList };
+export { renderDashboardTaskList };

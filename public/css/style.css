@@ -234,7 +234,7 @@ input:focus, textarea:focus, select:focus{
 
 .task-section{
     padding: 15px;
-    width: 65%;
+    width: 60%;
     border-radius: 8px;
     background-color: var(--white);
 }
@@ -321,7 +321,7 @@ span.description{
 }
 
 div.column{
-    width: 30%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -556,3 +556,107 @@ dialog::backdrop{
     min-height: 150px;
     cursor: pointer;
 }
+
+/* Calender Style */
+.card.calendar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-header button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.calendar-dates .date,
+.calendar-dates .empty {
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: #f3f3f3;
+}
+
+.calendar-dates .today {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Mobile query */
+
+/* Calculator */
+@media (max-width: 768px) {
+    .card.calendar {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  
+    .calendar-header {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  
+    .calendar-header h3 {
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+    .calendar-header button {
+      font-size: 1.2rem;
+    }
+  
+    .calendar-days,
+    .calendar-dates {
+      grid-template-columns: repeat(7, 1fr);
+      font-size: 0.85rem;
+    }
+  
+    .calendar-dates .date,
+    .calendar-dates .empty {
+      padding: 0.4rem 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .calendar-header h3 {
+      font-size: 0.95rem;
+    }
+  
+    .calendar-days,
+    .calendar-dates {
+      font-size: 0.75rem;
+      gap: 0.2rem;
+    }
+  
+    .calendar-dates .date,
+    .calendar-dates .empty {
+      padding: 0.35rem 0;
+    }
+  }
+  

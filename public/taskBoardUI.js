@@ -25,7 +25,7 @@ function renderTaskBoard() {
           <span class="tags" id="done">${task.importance}</span>
       </div>
       <span class="block det">${task.description}</span>
-      <span class="block time">${task.dueDate}</span>
+      <span class="block time">${formatDate(task.dueDate)}</span>
     `;
 
     // Append to appropriate column
@@ -34,6 +34,14 @@ function renderTaskBoard() {
     } else if (task.status === "done") {
       doneCol.appendChild(card);
     }
+  });
+}
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-US", {
+    month: "short", // e.g., "Jun"
+    day: "numeric", // e.g., "24"
   });
 }
 
