@@ -6,38 +6,22 @@
         "use": "@vercel/static"
       }
     ],
-    "routes": [
+    "rewrites": [
       {
-        "src": "/",
-        "dest": "/public/index.html"
+        "source": "/css/(.*)",
+        "destination": "/public/css/$1"
       },
       {
-        "src": "/tasks",
-        "dest": "/public/pages/tasks.html"
+        "source": "/fonts/(.*)",
+        "destination": "/public/fonts/$1"
       },
       {
-        "src": "/projects",
-        "dest": "/public/pages/projects.html"
+        "source": "/pages/(.*)",
+        "destination": "/public/pages/$1"
       },
       {
-        "src": "/singleProject",
-        "dest": "/public/pages/single-project.html"
-      },
-      {
-        "src": "/taskBoard",
-        "dest": "/public/pages/task-board.html"
-      },
-      {
-        "src": "/eisenhowerMatrix",
-        "dest": "/public/pages/eisenhower-matrix.html"
-      },
-      {
-        "src": "/pomodoro",
-        "dest": "/public/pages/pomodoro.html"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/public/index.html"
+        "source": "/(.*)",
+        "destination": "/public/index.html"
       }
     ]
   }
