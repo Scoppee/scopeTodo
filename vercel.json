@@ -1,28 +1,10 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "public/**/*",
-        "use": "@vercel/static"
-      }
-    ],
     "rewrites": [
       {
-        "source": "/css/(.*)",
-        "destination": "/public/css/$1"
-      },
-      {
-        "source": "/fonts/(.*)",
-        "destination": "/public/fonts/$1"
-      },
-      {
-        "source": "/pages/(.*)",
-        "destination": "/public/pages/$1"
-      },
-      {
         "source": "/(.*)",
-        "destination": "/public/index.html"
-      }
+        "destination": "/index.html"
+      }    
     ]
   }
   
