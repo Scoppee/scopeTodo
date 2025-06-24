@@ -1,22 +1,44 @@
 {
     "version": 2,
     "builds": [
-     {
-      "src": "public/pages/**",
-      "use": "@vercel/static"
-     }
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
+      }
     ],
     "routes": [
-     {
-      "src": "/(.*)",
-      "dest": "server.js"
-     }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
+      {
+        "src": "/",
+        "dest": "/public/index.html"
+      },
+      {
+        "src": "/tasks",
+        "dest": "/public/pages/tasks.html"
+      },
+      {
+        "src": "/projects",
+        "dest": "/public/pages/projects.html"
+      },
+      {
+        "src": "/singleProject",
+        "dest": "/public/pages/single-project.html"
+      },
+      {
+        "src": "/taskBoard",
+        "dest": "/public/pages/task-board.html"
+      },
+      {
+        "src": "/eisenhowerMatrix",
+        "dest": "/public/pages/eisenhower-matrix.html"
+      },
+      {
+        "src": "/pomodoro",
+        "dest": "/public/pages/pomodoro.html"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/public/index.html"
+      }
     ]
-   }
-   
+  }
+  
